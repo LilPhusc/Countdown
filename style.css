@@ -149,6 +149,29 @@ main {
       opacity: 1;
   }
 }
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-device-pixel-ratio: 3) {
+  .hero {
+      padding: 50px 20px;
+  }
+
+  .countdown-container {
+      font-size: 1.75rem;
+  }
+
+  .countdown-item {
+      padding: 25px;
+  }
+
+  .btn-register {
+      padding: 12px 24px;
+      font-size: 1.1rem;
+  }
+
+  .popup-content {
+      max-width: 320px;
+  }
+}
+
 @media only screen and (min-device-width: 430px) and (max-device-width: 770px) and (-webkit-device-pixel-ratio: 3) {
   .hero {
       padding: 60px 20px;
