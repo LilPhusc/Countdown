@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #111;
+  color: #fff;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Căn giữa theo chiều dọc */
+  align-items: center; /* Căn giữa theo chiều ngang */
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Chiều cao toàn màn hình */
+  background-image: url('./img/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-content {
+  background: rgba(255, 255, 255, 0.3); /* Nền trắng với độ trong suốt */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Nền mờ đen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: #fff; /* Nền trắng */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  width: 80%;
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #000; /* Màu đen cho nút tắt */
+}
+
+.popup p {
+  color: #333; /* Màu chữ đậm hơn */
+}
+.red {
+  color: #ff4f4f;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.countdown-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  min-width: 100px;
+}
+
+.countdown-number {
+  font-size: 2.5rem;
+  color: #ff4f4f;
+  animation: fadeIn 1.5s ease-in-out infinite alternate;
+}
+
+.btn-register {
+  background-color: #ff4f4f;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-register:hover {
+  background-color: #ff7777;
+}
+
+@keyframes fadeIn {
+  0% {
+      transform: translateY(-10px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+      transform: translateY(50px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+@media only screen and (min-device-width: 430px) and (max-device-width: 770px) and (-webkit-device-pixel-ratio: 3) {
+  .hero {
+      padding: 60px 20px;
+  }
+
+  .countdown-container {
+      font-size: 2rem;
+  }
+
+  .countdown-item {
+      padding: 30px;
+  }
+
+  .btn-register {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+  }
+
+  .popup-content {
+      max-width: 350px;
+  }
+}

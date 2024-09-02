@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SADAS'24</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Countdown ngày nghỉ làm :"3</h1>
+        <p>Cùng nhau đếm ngược ngày chúng ta<br>cùng nhau làm homestay nào<br><span class="red">vào lúc 01/01/2025 nhéeeeee :3 </span></p>
+        <div id="countdown" class="countdown-container">
+          <div class="countdown-item">
+            <span id="days" class="countdown-number">00</span>
+            <p>Days</p>
+          </div>
+          <div class="countdown-item">
+            <span id="hours" class="countdown-number">00</span>
+            <p>Hours</p>
+          </div>
+          <div class="countdown-item">
+            <span id="minutes" class="countdown-number">00</span>
+            <p>Minutes</p>
+          </div>
+          <div class="countdown-item">
+            <span id="seconds" class="countdown-number">00</span>
+            <p>Seconds</p>
+          </div>
+        </div>
+        <button class="btn-register" onclick="showPopup()">Nghỉ thôi</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Popup -->
+  <div id="popup" class="hidden">
+    <div class="popup-content">
+      <span id="popup-close" class="popup-close" onclick="closePopup()">&times;</span>
+      <p id="popup-text"></p>
+    </div>
+  </div>
+
+  <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("jan 01, 2025 00:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Output the result in an element with id="countdown"
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+      // If the count down is over, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "Symposium is Live!";
+      }
+    }, 1000);
+
+    // Show popup
+    function showPopup() {
+      const days = document.getElementById("days").innerText;
+      const hours = document.getElementById("hours").innerText;
+      const minutes = document.getElementById("minutes").innerText;
+      const popupText = `Còn lại ${days} ngày, ${hours} giờ, ${minutes} phút nữa!`;
+
+      document.getElementById("popup-text").innerText = popupText;
+      document.getElementById("popup").classList.remove("hidden");
+    }
+
+    // Close popup
+    function closePopup() {
+      document.getElementById("popup").classList.add("hidden");
+    }
+  </script>
+</body>
+</html>
